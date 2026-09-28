@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ShopLite Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>🛒 ShopLite</h2>
+
+    <button onclick="showSection('dashboard')">🏠 Dashboard</button>
+    <button onclick="showSection('products')">📦 Products</button>
+    <button onclick="showSection('billing')">🧾 Billing</button>
+    <button onclick="showSection('reports')">📊 Reports</button>
+</div>
+
+<div class="main">
+
+    <div class="topbar">
+        <h1>ShopLite Dashboard</h1>
+        <span>Admin</span>
+    </div>
+
+    <!-- Dashboard -->
+    <section id="dashboard">
+        <div class="cards">
+
+            <div class="card">
+                <h3>📦 Products</h3>
+                <p id="productCount">0</p>
+            </div>
+
+            <div class="card">
+                <h3>🧾 Bills</h3>
+                <p id="billCount">0</p>
+            </div>
+
+            <div class="card">
+                <h3>💰 Today's Sales</h3>
+                <p id="sales">₹0</p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Low Stock</h3>
+                <p id="lowStock">0</p>
+            </div>
+
+        </div>
+
+        <div class="panel">
+            <h2>Recent Products</h2>
+            <div id="productList"></div>
+        </div>
+    </section>
+
+
+    <!-- Products -->
+    <section id="products" class="hidden">
+
+        <div class="panel">
+            <h2>Add Product</h2>
+
+            <input id="name" placeholder="Product Name">
+            <input id="price" type="number" placeholder="Price">
+            <input id="stock" type="number" placeholder="Stock">
+            <input id="threshold" type="number"
+                   placeholder="Reorder Threshold">
+
+            <button class="addBtn" onclick="addProduct()">
+                Add Product
+            </button>
+        </div>
+
+        <div class="panel">
+            <h2>All Products</h2>
+            <div id="allProducts"></div>
+        </div>
+
+    </section>
+
+
+    <!-- Billing -->
+    <section id="billing" class="hidden">
+
+        <div class="panel">
+
+            <h2>🧾 Create Bill</h2>
+
+            <input id="billProductId"
+                   type="number"
+                   placeholder="Product ID">
+
+            <input id="billQuantity"
+                   type="number"
+                   placeholder="Quantity">
+
+            <button class="addBtn" onclick="createBill()">
+                Create Bill
+            </button>
+
+            <div id="billResult"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Reports -->
+    <section id="reports" class="hidden">
+
+        <div class="panel">
+
+            <h2>📊 Reports</h2>
+
+            <button onclick="loadReports()">
+                Refresh Reports
+            </button>
+
+            <div id="reportData"></div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
